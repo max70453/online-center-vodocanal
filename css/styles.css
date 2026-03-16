@@ -1,0 +1,570 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Шапка сайта */
+.header {
+    background-color: #2c3e50;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1270px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Кнопка меню-бургер */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s linear;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active span:first-child {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .nav-links {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        margin: 0;
+        border-radius: 4px;
+    }
+
+    .nav-links a:hover {
+        background-color: #3498db;
+        color: white;
+    }
+}
+
+.logo {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* Кнопки авторизации */
+.auth-buttons button {
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#loginBtn {
+    background-color: #3498db;
+    color: white;
+}
+
+#registerBtn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+/* Основной контент */
+main {
+    margin-top: 70px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Адаптивные стили для основных компонентов */
+@media (max-width: 1024px) {
+    main {
+        padding: 1.5rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .tariffs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px;
+        padding: 1rem;
+    }
+
+    .section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .tariffs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .auth-buttons button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 0.8rem;
+    }
+
+    .section {
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .auth-buttons button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .tariff-calculator {
+        padding: 1rem;
+    }
+
+    .calculator-form input,
+    .calculator-form select {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Модальные окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal button {
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Секции */
+.section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для секции тарифов */
+.tariffs-controls {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tariffs-filter {
+    flex: 1;
+    min-width: 250px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.tariff-calculator {
+    flex: 2;
+    min-width: 300px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calculator-form {
+    display: grid;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.calculator-form input,
+.calculator-form select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.calculate-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calculate-btn:hover {
+    background-color: #0056b3;
+}
+
+.calculation-result {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: none;
+}
+
+.calculation-result.active {
+    display: block;
+}
+
+.tariffs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tariff-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.tariff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.tariff-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tariff-name {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.tariff-price {
+    font-size: 32px;
+    color: #007bff;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.tariff-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.tariff-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.tariff-features li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.tariff-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+}
+
+.tariff-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.select-tariff-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.select-tariff-btn:hover {
+    background-color: #0056b3;
+}
+.active{
+    color: #3498db !important;
+}
+@media (max-width: 768px) {
+    .tariffs-controls {
+        flex-direction: column;
+    }
+
+    .tariffs-filter,
+    .tariff-calculator {
+        width: 100%;
+    }
+
+    .tariff-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Информационные блоки */
+.info-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.info-block {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Личный кабинет */
+.account-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.account-block {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+#requestForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Подвал */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+/* Утилиты */
+.hidden {
+    display: none;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .nav-main {
+        /* flex-direction: column; */
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .auth-buttons button {
+        margin: 0;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .section {
+        padding: 1rem;
+        margin-top: 20px;
+    }
+}
+
+.logo-pic{
+    width: 100px;
+}
+.logo-wrap{
+    display: flex;
+    align-items: center;
+}
+
+.logo-wrap img{
+    width: 80%;
+    border-radius: 100%;
+    margin-right: 10px;
+}

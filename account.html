@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр водоснабжения - Личный кабинет</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/info-section.css">
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-main">
+            <div class="logo-wrap">
+                <a href="index.html" class="logo-pic">
+                    <img src="img/logo.png" alt="logotype">
+                </a>
+                <div class="logo">Центр обслуживания</div>
+            </div>
+            <div class="auth-buttons">
+                <button id="loginBtn">Войти</button>
+                <button id="registerBtn">Регистрация</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="account-page" style="margin-top: 150px;">
+        <section class="account-info">
+            <h2>Информация о лицевом счете</h2>
+            <div class="account-balance">
+                <h3>Текущий баланс</h3>
+                <div id="currentBalance" class="balance-amount">0.00 ₽</div>
+            </div>
+
+            <div class="account-history">
+                <h3>История операций</h3>
+                <div class="history-filters">
+                    <select id="operationType">
+                        <option value="all">Все операции</option>
+                        <option value="payments">Платежи</option>
+                        <option value="charges">Начисления</option>
+                    </select>
+                    <input type="date" id="dateFrom">
+                    <input type="date" id="dateTo">
+                    <button id="applyFilters">Применить</button>
+                </div>
+                <div id="operationsHistory" class="history-list">
+                    <!-- История операций будет добавлена динамически -->
+                </div>
+            </div>
+        </section>
+
+        <section class="service-requests">
+            <h2>Заявки на обслуживание</h2>
+            <form id="serviceRequestForm" class="request-form">
+                <select id="requestType" required>
+                    <option value="">Выберите тип заявки</option>
+                    <option value="repair">Ремонтные работы</option>
+                    <option value="verification">Поверка приборов учета</option>
+                    <option value="replacement">Замена оборудования</option>
+                    <option value="other">Другое</option>
+                </select>
+                <input type="text" id="requestAddress" placeholder="Адрес" required>
+                <textarea id="requestDescription" placeholder="Описание проблемы или необходимых работ" required></textarea>
+                <input type="tel" id="requestPhone" placeholder="Контактный телефон" required>
+                <div class="preferred-date">
+                    <label>Предпочтительная дата:</label>
+                    <input type="date" id="requestDate" required>
+                </div>
+                <button type="submit">Отправить заявку</button>
+            </form>
+
+            <div class="requests-history">
+                <h3>История заявок</h3>
+                <div id="requestsHistory" class="history-list">
+                    <!-- История заявок будет добавлена динамически -->
+                </div>
+            </div>
+        </section>
+
+        <section class="consumption-analysis" style="margin-top: 50px;">
+            <h2>Анализ потребления ресурсов</h2>
+            <div class="analysis-dashboard">
+                <div class="consumption-charts">
+                    <div class="chart-container">
+                        <h3>Динамика потребления</h3>
+                        <canvas class="col-12" id="consumptionTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3 style="color: #fff;">Контакты</h3>
+                <p>Телефон: +7(856) 304-53-31</p>
+                <p>Email: info@vodocanal.ru</p>
+            </div>
+            <div class="working-hours">
+                <h3 style="color: #fff;">Режим работы</h3>
+                <p>Пн-Пт: 9:00 - 18:00</p>
+                <p>Сб-Вс: выходной</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/tariffs.js"></script>
+    <script src="js/account.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

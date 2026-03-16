@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр водоснабжения - Техническая поддержка</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/technicalSupport.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-main">
+            <div class="logo-wrap">
+                <a href="index.html" class="logo-pic">
+                    <img src="img/logo.png" alt="logotype">
+                </a>
+                <div class="logo">Центр обслуживания</div>
+            </div>
+            <div class="auth-buttons">
+                <button id="loginBtn">Войти</button>
+                <button id="registerBtn">Регистрация</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="technical-support" style="margin-top: 160px;">
+        <div class="container">
+            <section class="requests-section">
+                <h2>Управление заявками</h2>
+                <div class="filters-panel">
+                    <div class="filter-group">
+                        <label for="statusFilter">Статус:</label>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="all">Все статусы</option>
+                            <option value="new">Новые</option>
+                            <option value="in-progress">В работе</option>
+                            <option value="resolved">Выполненные</option>
+                            <option value="cancelled">Отмененные</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="typeFilter">Тип заявки:</label>
+                        <select id="typeFilter" class="filter-select">
+                            <option value="all">Все типы</option>
+                            <option value="emergency">Аварийные</option>
+                            <option value="maintenance">Плановые работы</option>
+                            <option value="connection">Подключение</option>
+                            <option value="consultation">Консультация</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateFilter">Дата создания:</label>
+                        <input type="date" id="dateFilter" class="filter-date">
+                    </div>
+                    <div class="filter-group">
+                        <label for="addressFilter">Адрес:</label>
+                        <input type="text" id="addressFilter" class="filter-text" placeholder="Введите адрес">
+                    </div>
+                    <button id="applyFilters" class="filter-button">Применить фильтры</button>
+                    <button id="resetFilters" class="filter-button reset">Сбросить</button>
+                </div>
+                
+                <div class="requests-table-container">
+                    <table class="requests-table" id="requestsTable">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Дата создания</th>
+                                <th>Тип</th>
+                                <th>Адрес</th>
+                                <th>Статус</th>
+                                <th>Бригада</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Данные будут добавлены через JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Модальное окно для подробной информации -->
+                <div id="requestDetailsModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Подробная информация о заявке</h3>
+                        <div id="requestDetails" class="request-details">
+                            <!-- Детали заявки будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модальное окно для изменения статуса -->
+                <div id="changeStatusModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Изменение статуса заявки</h3>
+                        <div class="status-form">
+                            <div class="form-group">
+                                <label for="newStatus">Новый статус:</label>
+                                <select id="newStatus" class="form-select">
+                                    <option value="new">Новая</option>
+                                    <option value="in-progress">В работе</option>
+                                    <option value="resolved">Выполнена</option>
+                                    <option value="cancelled">Отменена</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="statusComment">Вводные данные:</label>
+                                <textarea id="statusComment" class="form-textarea" placeholder="Введите комментарий к изменению статуса"></textarea>
+                            </div>
+                            <button id="saveStatus" class="form-button">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модальное окно для назначения бригады -->
+                <div id="assignTeamModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Назначение бригады</h3>
+                        <div class="team-form">
+                            <div class="form-group">
+                                <label for="teamSelect">Выберите бригаду:</label>
+                                <select id="teamSelect" class="form-select">
+                                    <option value="">-- Выберите бригаду --</option>
+                                    <option value="team1">Бригада №1</option>
+                                    <option value="team2">Бригада №2</option>
+                                    <option value="team3">Бригада №3</option>
+                                    <option value="team4">Бригада №4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="teamComment">Вводные данные:</label>
+                                <textarea id="teamComment" class="form-textarea" placeholder="Введите комментарий к назначению бригады"></textarea>
+                            </div>
+                            <button id="saveTeam" class="form-button">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="alerts-section">
+                <h2>Аварийные ситуации</h2>
+                <div class="alerts-dashboard">
+                    <div class="alerts-map" id="emergencyMap">
+                        <!-- Карта будет инициализирована через JavaScript -->
+                    </div>
+                    <div class="alerts-list">
+                        <h3>Активные уведомления</h3>
+                        <div id="activeAlerts" class="active-alerts">
+                            <div class="alert-item">
+                                <div class="alert-type">Прорыв трубопровода</div>
+                                <div class="alert-location">ул. Ленина, 45</div>
+                                <div class="alert-time">Обнаружено: 15.12.2023 14:30</div>
+                                <span class="alert-status status-new">Новое</span>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-type">Отсутствие воды</div>
+                                <div class="alert-location">ул. Гагарина, 12</div>
+                                <div class="alert-time">Обнаружено: 15.12.2023 13:15</div>
+                                <span class="alert-status status-new">Новое</span>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-type">Низкое давление</div>
+                                <div class="alert-location">пр. Мира, 78</div>
+                                <div class="alert-time">Обнаружено: 15.12.2023 10:45</div>
+                                <span class="alert-status status-new">Новое</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="diagnostics-section">
+                <h2>Удаленная диагностика</h2>
+                <div class="diagnostics-dashboard">
+                    <div class="equipment-status">
+                        <h3>Состояние оборудования</h3>
+                        <div id="equipmentStatus" class="equipment-list">
+                            <!-- Статус оборудования будет добавлен через JavaScript -->
+                        </div>
+                    </div>
+                    <div class="communication-lines">
+                        <h3>Состояние коммуникационных линий</h3>
+                        <div id="communicationStatus" class="communication-status">
+                            <!-- Статус коммуникаций будет добавлен через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3 style="color: #fff;">Контакты</h3>
+                <p>Телефон: +7(856) 304-53-31</p>
+                <p>Email: info@vodocanal.ru</p>
+            </div>
+            <div class="working-hours">
+                <h3 style="color: #fff;">Режим работы</h3>
+                <p>Пн-Пт: 9:00 - 18:00</p>
+                <p>Сб-Вс: выходной</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/technicalSupport.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

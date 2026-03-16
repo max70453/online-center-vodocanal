@@ -1,0 +1,178 @@
+.analytics-page {
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Стили для секции анализа потребления */
+.analysis-dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.consumption-charts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.network-analysis {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.network-map {
+    height: 300px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.segment-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Стили для секции генерации отчетов */
+.reports-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-filters {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.filter-group select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.generate-btn {
+    padding: 0.75rem 2rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.generate-btn:hover {
+    background-color: #2980b9;
+}
+
+.report-preview {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    min-height: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для секции рекомендаций */
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.cost-optimization,
+.energy-efficiency {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations-list {
+    margin-top: 1rem;
+}
+
+/* Общие стили */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 1200px) {
+    .analysis-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .reports-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .report-filters {
+        flex-direction: column;
+    }
+
+    .filter-group select {
+        width: 100%;
+    }
+
+    .generate-btn {
+        width: 100%;
+    }
+}

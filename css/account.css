@@ -1,0 +1,191 @@
+/* Основные стили страницы личного кабинета */
+.account-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .account-page {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Стили для секций */
+.account-info, .service-requests {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.account-info:hover, .service-requests:hover {
+    transform: translateY(-5px);
+}
+
+/* Стили для заголовков */
+h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: #34495e;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+/* Стили для баланса */
+.account-balance {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.balance-amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Стили для фильтров истории */
+.history-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.history-filters select,
+.history-filters input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.history-filters button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.history-filters button:hover {
+    background: #2980b9;
+}
+
+/* Стили для списка истории */
+.history-list {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Стили для формы заявки */
+.request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.request-form select,
+.request-form input[type="text"],
+.request-form input[type="tel"],
+.request-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.request-form select:focus,
+.request-form input:focus,
+.request-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.request-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.preferred-date {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.request-form button[type="submit"] {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.request-form button[type="submit"]:hover {
+    background: #27ae60;
+}
+
+/* Стили для секции анализа потребления */
+.consumption-analysis {
+    grid-column: 1 / -1; /* Растягивает секцию на всю ширину grid-контейнера */
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.analysis-dashboard {
+    width: 100%;
+}
+
+.consumption-charts {
+    width: 100%;
+}
+
+.chart-container {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .account-page {
+        grid-template-columns: 1fr;
+    }
+
+    .history-filters {
+        flex-direction: column;
+    }
+
+    .history-filters select,
+    .history-filters input[type="date"] {
+        width: 100%;
+    }
+}

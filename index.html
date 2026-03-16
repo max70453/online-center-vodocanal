@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр водоснабжения - Личный кабинет</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/info-section.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-main">
+            <div class="logo-wrap">
+                <a href="index.html" class="logo-pic">
+                    <img src="img/logo.png" alt="logotype">
+                </a>
+                <div class="logo">Центр обслуживания</div>
+            </div>
+            
+            <div class="nav-links">
+                <!-- <a href="index.html" class="active">Главная</a> -->
+                <!-- <a href="analytics.html">Аналитика</a> -->
+                <a href="technicalSupport.html">Поддержка</a>
+                <!-- <a href="requestProcessing.html">Запросы</a> -->
+                <a href="account.html">Кабинет</a>
+            </div>
+            <div class="auth-buttons">
+                <button id="loginBtn">Войти</button>
+                <button id="registerBtn">Регистрация</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Форма авторизации -->
+        <div id="authForm" class="modal hidden">
+            <div class="modal-content">
+                <h2>Авторизация</h2>
+                <form id="loginForm">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Форма регистрации -->
+        <div id="registerForm" class="modal hidden">
+            <div class="modal-content">
+                <h2>Регистрация</h2>
+                <form id="signupForm">
+                    <input type="text" placeholder="ФИО" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <input type="text" placeholder="Номер лицевого счета" required>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Секция с тарифами -->
+        <section id="tariffs" class="section">
+            <h2>Тарифы и условия</h2>
+            <div class="tariffs-controls">
+                <div class="tariffs-filter">
+                    <select id="tariffCategory" class="filter-select">
+                        <option value="all">Все тарифы</option>
+                        <option value="residential">Для жилых помещений</option>
+                        <option value="commercial">Для коммерческих помещений</option>
+                        <option value="industrial">Для промышленных объектов</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="tariffs-grid">
+                <!-- Шаблон карточки тарифа -->
+                <template id="tariffTemplate">
+                    <div class="tariff-card">
+                        <div class="tariff-header">
+                            <h3 class="tariff-name"></h3>
+                            <div class="tariff-price"></div>
+                        </div>
+                        <div class="tariff-content">
+                            <ul class="tariff-features"></ul>
+                            <div class="tariff-description"></div>
+                        </div>
+                        <button class="select-tariff-btn">Выбрать тариф</button>
+                    </div>
+                </template>
+                <!-- Тарифы будут добавляться динамически с помощью JavaScript -->
+            </div>
+        </section>
+
+        <div class="tariff-calculator">
+            <h3>Калькулятор стоимости</h3>
+            <div class="calculator-form">
+                <input type="number" id="squareMeters" placeholder="Количество проживающих" min="1">
+                <select id="heatingType">
+                    <option value="cold">Холодное водоснабжение (ХВС)</option>
+                    <option value="hot">Горячее водоснабжение (ГВС)</option>
+                </select>
+                <button id="calculateCost" class="calculate-btn">Рассчитать стоимость</button>
+                <div id="calculationResult" class="calculation-result"></div>
+            </div>
+        </div>
+
+        <!-- Справочная информация -->
+        <section id="info" class="section">
+            <h2>Справочная информация</h2>
+            <div class="info-blocks">
+                <div class="info-block">
+                    <h3>Характеристики воды</h3>
+                    <div class="info-content">
+                        <div class="info-card">
+                            <h4>Нормативные показатели</h4>
+                            <ul>
+                                <li>Жесткость воды: <span class="value">7-10 мг-экв/л</span></li>
+                                <li>pH воды: <span class="value">6.5-8.5</span></li>
+                                <li>Содержание железа: <span class="value">не более 0.3 мг/л</span></li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h4>Давление в сети</h4>
+                            <ul>
+                                <li>Рабочее давление: <span class="value">2-6 бар</span></li>
+                                <li>Максимальное давление: <span class="value">10 бар</span></li>
+                                <li>Минимальное давление: <span class="value">1.5 бар</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <h3>Технические характеристики</h3>
+                    <div class="info-content">
+                        <div class="info-card">
+                            <h4>Показатели качества воды</h4>
+                            <ul>
+                                <li>Мутность: <span class="value">не более 1.5 мг/л</span></li>
+                                <li>Цветность: <span class="value">не более 20 градусов</span></li>
+                                <li>Хлор остаточный: <span class="value">0.3-0.5 мг/л</span></li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h4>Рекомендации по эксплуатации</h4>
+                            <div class="recommendations">
+                                <details>
+                                    <summary>Подготовка к эксплуатации</summary>
+                                    <ul>
+                                        <li>Проверка герметичности системы водоснабжения и устранение протечек</li>
+                                        <li>Промывка трубопроводов и фильтров</li>
+                                        <li>Проверка работоспособности запорной арматуры</li>
+                                        <li>Установка и калибровка счетчиков воды</li>
+                                        <li>Проверка состояния изоляции труб</li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Текущее обслуживание</summary>
+                                    <ul>
+                                        <li>Ежемесячный контроль показаний счетчиков</li>
+                                        <li>Регулярная проверка давления в системе</li>
+                                        <li>Очистка аэраторов и смесителей</li>
+                                        <li>Проверка состояния уплотнителей и прокладок</li>
+                                        <li>Профилактический осмотр труб и фитингов</li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Аварийные ситуации</summary>
+                                    <ul>
+                                        <li>При обнаружении протечки:
+                                            <ol>
+                                                <li>Перекрыть запорную арматуру на аварийном участке</li>
+                                                <li>Сообщить в аварийную службу</li>
+                                                <li>Принять меры по предотвращению затопления</li>
+                                            </ol>
+                                        </li>
+                                        <li>При снижении давления:
+                                            <ol>
+                                                <li>Проверить показания манометров</li>
+                                                <li>Осмотреть систему на наличие утечек</li>
+                                                <li>Проверить фильтры на загрязнение</li>
+                                                <li>Вызвать специалиста при необходимости</li>
+                                            </ol>
+                                        </li>
+                                        <li>При помутнении воды:
+                                            <ol>
+                                                <li>Проверить состояние фильтров</li>
+                                                <li>Подать заявку на проверку качества воды</li>
+                                                <li>Использовать фильтрованную воду для питья</li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Экономия воды</summary>
+                                    <ul>
+                                        <li>Установка счетчиков воды для точного учета</li>
+                                        <li>Использование водосберегающей арматуры</li>
+                                        <li>Своевременный ремонт капающих кранов</li>
+                                        <li>Установка аэраторов на смесители</li>
+                                        <li>Контроль расхода воды бытовыми приборами</li>
+                                    </ul>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Личный кабинет -->
+        <section id="account" class="section hidden">
+            <h2>Личный кабинет</h2>
+            <div class="account-grid">
+                <div class="account-block">
+                    <h3>Баланс лицевого счета</h3>
+                    <div id="accountBalance" class="balance-info">
+                        <div class="balance-details">
+                            <div class="balance-item">
+                                <span class="label">Текущий баланс:</span>
+                                <span class="amount" id="currentBalance">0.00 ₽</span>
+                            </div>
+                            <div class="balance-item">
+                                <span class="label">К оплате до:</span>
+                                <span class="date" id="paymentDueDate">01.01.2025</span>
+                            </div>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn" id="payBtn">Оплатить</button>
+                            <button class="action-btn" id="downloadReceiptBtn">Скачать квитанцию</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-block">
+                    <h3>История платежей и начислений</h3>
+                    <div class="payment-controls">
+                        <div class="payment-filter">
+                            <select id="paymentType" class="filter-select">
+                                <option value="all">Все операции</option>
+                                <option value="payments">Платежи</option>
+                                <option value="charges">Начисления</option>
+                            </select>
+                            <input type="month" id="paymentPeriod" class="period-select">
+                        </div>
+                        <div class="payment-sort">
+                            <select id="paymentSort" class="sort-select">
+                                <option value="date-desc">Сначала новые</option>
+                                <option value="date-asc">Сначала старые</option>
+                                <option value="amount-desc">По сумме (макс)</option>
+                                <option value="amount-asc">По сумме (мин)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="paymentHistory" class="payment-history">
+                        <table class="payment-table">
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>Тип</th>
+                                    <th>Описание</th>
+                                    <th>Сумма</th>
+                                    <th>Статус</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentHistoryBody">
+                                <!-- Данные будут добавлены динамически с помощью JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button id="prevPage" class="page-btn" disabled>Назад</button>
+                        <span id="currentPage">Страница 1 из 1</span>
+                        <button id="nextPage" class="page-btn" disabled>Вперед</button>
+                    </div>
+                </div>
+                <div class="account-block">
+                    <h3>Подать заявку</h3>
+                    <form id="requestForm">
+                        <select id="requestType" required>
+                            <option value="">Выберите тип заявки</option>
+                            <option value="repair">Ремонтные работы</option>
+                            <option value="verification">Поверка приборов учета</option>
+                            <option value="replacement">Замена оборудования</option>
+                        </select>
+                        <textarea placeholder="Описание проблемы" required></textarea>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Контакты</h3>
+                <p>Телефон: +7(856) 304-53-31</p>
+                <p>Email: info@vodocanal.ru</p>
+            </div>
+            <div class="working-hours">
+                <h3>Режим работы</h3>
+                <p>Пн-Пт: 9:00 - 18:00</p>
+                <p>Сб-Вс: выходной</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/tariffs.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>
