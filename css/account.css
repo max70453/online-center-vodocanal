@@ -32,7 +32,7 @@ h2 {
     color: #1a1a2e;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #9b59b6;
+    border-bottom: 2px solid #cdb8d5;
     padding-bottom: 0.5rem;
 }
 
@@ -46,7 +46,7 @@ h3 {
 .account-balance {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    background: linear-gradient(135deg, #cdb8d5, #b39ddb);
     border-radius: 4px;
     color: white;
     margin-bottom: 2rem;
@@ -76,7 +76,7 @@ h3 {
 }
 
 .history-filters button {
-    background: #9b59b6;
+    background: #cdb8d5;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -86,7 +86,7 @@ h3 {
 }
 
 .history-filters button:hover {
-    background: #8e44ad;
+    background: #b39ddb;
 }
 
 /* Стили для списка истории */
@@ -120,7 +120,7 @@ h3 {
 .request-form select:focus,
 .request-form input:focus,
 .request-form textarea:focus {
-    border-color: #9b59b6;
+    border-color: #cdb8d5;
     outline: none;
     box-shadow: 0 0 0 2px rgba(155, 89, 182, 0.2);
 }

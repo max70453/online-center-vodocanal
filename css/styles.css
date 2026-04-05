@@ -102,7 +102,7 @@ body {
     }
 
     .nav-links a:hover {
-        background-color: #9b59b6;
+        background-color: #cdb8d5;
         color: white;
     }
 }
@@ -122,7 +122,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #9b59b6;
+    color: #cdb8d5;
 }
 
 /* Кнопки авторизации */
@@ -136,7 +136,7 @@ body {
 }
 
 #loginBtn {
-    background-color: #9b59b6;
+    background-color: #cdb8d5;
     color: white;
 }
 
@@ -274,7 +274,7 @@ main {
 }
 
 .modal button {
-    background-color: #9b59b6;
+    background-color: #cdb8d5;
     color: white;
     padding: 0.5rem;
     border: none;
@@ -340,7 +340,7 @@ main {
 }
 
 .calculate-btn {
-    background-color: #9b59b6;
+    background-color: #cdb8d5;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -350,7 +350,7 @@ main {
 }
 
 .calculate-btn:hover {
-    background-color: #8e44ad;
+    background-color: #b39ddb;
 }
 
 .calculation-result {
@@ -403,7 +403,7 @@ main {
 
 .tariff-price {
     font-size: 32px;
-    color: #9b59b6;
+    color: #cdb8d5;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -429,7 +429,7 @@ main {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #9b59b6;
+    color: #cdb8d5;
 }
 
 .tariff-description {
@@ -441,7 +441,7 @@ main {
 .select-tariff-btn {
     width: 100%;
     padding: 15px;
-    background-color: #9b59b6;
+    background-color: #cdb8d5;
     color: white;
     border: none;
     font-size: 16px;
@@ -450,10 +450,10 @@ main {
 }
 
 .select-tariff-btn:hover {
-    background-color: #8e44ad;
+    background-color: #b39ddb;
 }
 .active{
-    color: #9b59b6 !important;
+    color: #cdb8d5 !important;
 }
 @media (max-width: 768px) {
     .tariffs-controls {

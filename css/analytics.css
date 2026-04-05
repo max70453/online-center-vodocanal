@@ -90,7 +90,7 @@
 
 .generate-btn {
     padding: 0.75rem 2rem;
-    background-color: #9b59b6;
+    background-color: #cdb8d5;
     color: white;
     border: none;
     border-radius: 4px;
@@ -99,7 +99,7 @@
 }
 
 .generate-btn:hover {
-    background-color: #8e44ad;
+    background-color: #b39ddb;
 }
 
 .report-preview {

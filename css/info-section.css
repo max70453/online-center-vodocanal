@@ -17,7 +17,7 @@
     color: #1a1a2e;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #9b59b6;
+    border-bottom: 2px solid #cdb8d5;
 }
 
 .info-content {
@@ -37,7 +37,7 @@
 }
 
 .info-card h4 {
-    color: #9b59b6;
+    color: #cdb8d5;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -73,7 +73,7 @@
 .recommendations summary {
     cursor: pointer;
     padding: 0.5rem;
-    color: #9b59b6;
+    color: #cdb8d5;
     font-weight: 500;
 }
 

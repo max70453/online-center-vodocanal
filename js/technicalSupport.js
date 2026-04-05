@@ -719,8 +719,8 @@ document.addEventListener('DOMContentLoaded', function() {
         datasets: [{
             label: 'Потребление за месяц (Гкал)',
             data: [150, 130, 100, 80, 40, 20],
-            borderColor: '#9b59b6',
-            backgroundColor: 'rgba(155, 89, 182, 0.1)',
+            borderColor: '#cdb8d5',
+            backgroundColor: 'rgba(205, 184, 213, 0.1)',
             fill: true
         }]
     };
