@@ -15,7 +15,7 @@ function initializeCharts() {
             datasets: [{
                 label: 'Потребление ресурсов',
                 data: [65, 59, 80, 81, 56, 55],
-                borderColor: '#3498db',
+                borderColor: '#9b59b6',
                 tension: 0.1,
                 fill: false
             }]

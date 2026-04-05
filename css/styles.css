@@ -9,6 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #f5f5f5;
 }
 
 /* Шапка сайта */
@@ -101,7 +102,7 @@ body {
     }
 
     .nav-links a:hover {
-        background-color: #3498db;
+        background-color: #9b59b6;
         color: white;
     }
 }
@@ -121,7 +122,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #3498db;
+    color: #9b59b6;
 }
 
 /* Кнопки авторизации */
@@ -135,7 +136,7 @@ body {
 }
 
 #loginBtn {
-    background-color: #3498db;
+    background-color: #9b59b6;
     color: white;
 }
 
@@ -253,7 +254,7 @@ main {
 .modal-content {
     background-color: white;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 4px;
     width: 100%;
     max-width: 400px;
 }
@@ -273,7 +274,7 @@ main {
 }
 
 .modal button {
-    background-color: #3498db;
+    background-color: #9b59b6;
     color: white;
     padding: 0.5rem;
     border: none;
@@ -286,7 +287,7 @@ main {
     margin-bottom: 3rem;
     padding: 2rem;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -309,7 +310,7 @@ main {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 16px;
     background-color: white;
     cursor: pointer;
@@ -320,7 +321,7 @@ main {
     min-width: 300px;
     background-color: #f8f9fa;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -334,29 +335,29 @@ main {
 .calculator-form select {
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 16px;
 }
 
 .calculate-btn {
-    background-color: #007bff;
+    background-color: #9b59b6;
     color: white;
     border: none;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .calculate-btn:hover {
-    background-color: #0056b3;
+    background-color: #8e44ad;
 }
 
 .calculation-result {
     margin-top: 15px;
     padding: 15px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 4px;
     border: 1px solid #ddd;
     display: none;
 }
@@ -374,7 +375,7 @@ main {
 
 .tariff-card {
     background-color: white;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -402,7 +403,7 @@ main {
 
 .tariff-price {
     font-size: 32px;
-    color: #007bff;
+    color: #9b59b6;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -428,7 +429,7 @@ main {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #28a745;
+    color: #9b59b6;
 }
 
 .tariff-description {
@@ -440,7 +441,7 @@ main {
 .select-tariff-btn {
     width: 100%;
     padding: 15px;
-    background-color: #007bff;
+    background-color: #9b59b6;
     color: white;
     border: none;
     font-size: 16px;
@@ -449,10 +450,10 @@ main {
 }
 
 .select-tariff-btn:hover {
-    background-color: #0056b3;
+    background-color: #8e44ad;
 }
 .active{
-    color: #3498db !important;
+    color: #9b59b6 !important;
 }
 @media (max-width: 768px) {
     .tariffs-controls {
@@ -479,7 +480,7 @@ main {
 .info-block {
     padding: 1.5rem;
     background-color: #f8f9fa;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 /* Личный кабинет */
@@ -492,7 +493,7 @@ main {
 .account-block {
     padding: 1.5rem;
     background-color: #f8f9fa;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 #requestForm {

@@ -211,7 +211,7 @@ const requestsData = [
         status: 'in-progress',
         statusName: 'В работе',
         team: 'team1',
-        teamName: 'Бригада №1',
+        teamName: 'Техслужба №1',
         description: 'Прорыв трубопровода на участке между домами 45 и 47. Требуется срочный ремонт.',
         contactName: 'Иванов И.И.',
         contactPhone: '+7 (900) 123-45-67',
@@ -219,7 +219,7 @@ const requestsData = [
         createdBy: 'Диспетчер',
         comments: [
             { date: '2025-01-10 10:30', author: 'Диспетчер', text: 'Заявка создана на основании звонка жильца.' },
-            { date: '2025-01-10 11:15', author: 'Бригада №1', text: 'Выехали на место.' }
+            { date: '2025-01-10 11:15', author: 'Техслужба №1', text: 'Выехали на место.' }
         ]
     },
     {
@@ -250,7 +250,7 @@ const requestsData = [
         status: 'resolved',
         statusName: 'Выполнена',
         team: 'team2',
-        teamName: 'Бригада №2',
+        teamName: 'Техслужба №2',
         description: 'Подключение нового абонента к системе водоснабжения.',
         contactName: 'Сидоров С.С.',
         contactPhone: '+7 (900) 111-22-33',
@@ -258,7 +258,7 @@ const requestsData = [
         createdBy: 'Менеджер',
         comments: [
             { date: '2025-01-08 14:00', author: 'Менеджер', text: 'Заявка создана на основании договора №123.' },
-            { date: '2025-01-09 10:30', author: 'Бригада №2', text: 'Работы по подключению выполнены.' },
+            { date: '2025-01-09 10:30', author: 'Техслужба №2', text: 'Работы по подключению выполнены.' },
             { date: '2025-01-09 15:45', author: 'Инженер', text: 'Проверка выполнена. Подключение успешно.' }
         ]
     },
@@ -332,7 +332,7 @@ function displayRequests(requests = requestsData) {
                 <div class="action-buttons">
                     <button class="action-button view-button" data-action="view" data-id="${request.id}">Подробно</button>
                     <button class="action-button status-button" data-action="status" data-id="${request.id}">Статус</button>
-                    <button class="action-button team-button" data-action="team" data-id="${request.id}">Бригада</button>
+                    <button class="action-button team-button" data-action="team" data-id="${request.id}">Техслужба</button>
                 </div>
             </td>
         `;
@@ -526,7 +526,7 @@ function getStatusName(status) {
     }
 }
 
-// Отображение модального окна для назначения бригады
+// Отображение модального окна для назначения техслужбы
 function showAssignTeamModal(request) {
     const modal = document.getElementById('assignTeamModal');
     const teamSelect = document.getElementById('teamSelect');
@@ -534,7 +534,7 @@ function showAssignTeamModal(request) {
     
     if (!modal || !teamSelect || !saveButton) return;
     
-    // Устанавливаем текущую бригаду
+    // Устанавливаем текущую техслужбу
     teamSelect.value = request.team;
     
     // Очищаем поле комментария
@@ -546,55 +546,47 @@ function showAssignTeamModal(request) {
         const comment = document.getElementById('teamComment').value.trim();
         
         if (newTeam === request.team && comment === '') {
-            alert('Бригада не изменена или не добавлен комментарий');
+            alert('Техслужба не изменена или не добавлен комментарий');
             return;
         }
         
-        // Обновляем бригаду заявки
-        const requestIndex = requestsData.findIndex(req => req.id === request.id);
-        if (requestIndex !== -1) {
-            // Обновляем бригаду
-            requestsData[requestIndex].team = newTeam;
-            requestsData[requestIndex].teamName = newTeam ? getTeamName(newTeam) : 'Не назначена';
-            
-            // Если назначена бригада и статус "Новая", меняем на "В работе"
-            if (newTeam && requestsData[requestIndex].status === 'new') {
-                requestsData[requestIndex].status = 'in-progress';
-                requestsData[requestIndex].statusName = 'В работе';
-            }
-            
-            // Добавляем комментарий, если он есть
-            if (comment || newTeam !== request.team) {
-                const now = new Date();
-                const dateString = now.toLocaleDateString('ru-RU') + ' ' + now.toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'});
-                
-                let commentText = '';
-                if (newTeam) {
-                    commentText = `Назначена ${getTeamName(newTeam)}. `;
-                } else {
-                    commentText = 'Бригада снята с заявки. ';
-                }
-                
-                if (comment) {
-                    commentText += comment;
-                }
-                
-                requestsData[requestIndex].comments.push({
-                    date: dateString,
-                    author: 'Оператор',
-                    text: commentText
-                });
-            }
-            
-            // Обновляем отображение заявок
-            applyFilters();
-            
-            // Закрываем модальное окно
-            modal.style.display = 'none';
-            
-            // Удаляем обработчик события
-            saveButton.removeEventListener('click', saveHandler);
+        // Обновляем техслужбу заявки
+        if (newTeam && requestsData[requestIndex].status === 'new') {
+            requestsData[requestIndex].status = 'in-progress';
+            requestsData[requestIndex].statusName = 'В работе';
         }
+        
+        // Добавляем комментарий, если он есть
+        if (comment || newTeam !== request.team) {
+            const now = new Date();
+            const dateString = now.toLocaleDateString('ru-RU') + ' ' + now.toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'});
+            
+            let commentText = '';
+            if (newTeam) {
+                commentText = `Назначена ${getTeamName(newTeam)}. `;
+            } else {
+                commentText = 'Техслужба снята с заявки. ';
+            }
+            
+            if (comment) {
+                commentText += comment;
+            }
+            
+            requestsData[requestIndex].comments.push({
+                date: dateString,
+                author: 'Оператор',
+                text: commentText
+            });
+        }
+        
+        // Обновляем отображение заявок
+        applyFilters();
+        
+        // Закрываем модальное окно
+        modal.style.display = 'none';
+        
+        // Удаляем обработчик события
+        saveButton.removeEventListener('click', saveHandler);
     };
     
     // Добавляем обработчик события для кнопки сохранения
@@ -604,14 +596,14 @@ function showAssignTeamModal(request) {
     modal.style.display = 'block';
 }
 
-// Получение названия бригады
+// Получение названия техслужбы
 function getTeamName(team) {
     switch(team) {
-        case 'team1': return 'Бригада №1';
-        case 'team2': return 'Бригада №2';
-        case 'team3': return 'Бригада №3';
-        case 'team4': return 'Бригада №4';
-        default: return 'Неизвестная бригада';
+        case 'team1': return 'Техслужба №1';
+        case 'team2': return 'Техслужба №2';
+        case 'team3': return 'Техслужба №3';
+        case 'team4': return 'Техслужба №4';
+        default: return 'Неизвестная техслужба';
     }
 }
 
@@ -727,8 +719,8 @@ document.addEventListener('DOMContentLoaded', function() {
         datasets: [{
             label: 'Потребление за месяц (Гкал)',
             data: [150, 130, 100, 80, 40, 20],
-            borderColor: '#4CAF50',
-            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+            borderColor: '#9b59b6',
+            backgroundColor: 'rgba(155, 89, 182, 0.1)',
             fill: true
         }]
     };

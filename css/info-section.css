@@ -8,16 +8,16 @@
 
 .info-block {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
 }
 
 .info-block h3 {
-    color: #2c3e50;
+    color: #1a1a2e;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #9b59b6;
 }
 
 .info-content {
@@ -27,7 +27,7 @@
 
 .info-card {
     background: #f8f9fa;
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 1.25rem;
     transition: transform 0.2s ease;
 }
@@ -37,7 +37,7 @@
 }
 
 .info-card h4 {
-    color: #3498db;
+    color: #9b59b6;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -73,7 +73,7 @@
 .recommendations summary {
     cursor: pointer;
     padding: 0.5rem;
-    color: #3498db;
+    color: #9b59b6;
     font-weight: 500;
 }
 

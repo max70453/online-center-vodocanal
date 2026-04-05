@@ -14,7 +14,7 @@
                 <a href="index.html" class="logo-pic">
                     <img src="img/logo.png" alt="logotype">
                 </a>
-                <div class="logo">Центр обслуживания</div>
+                <!-- <div class="logo">Центр обслуживания</div> -->
             </div>
             <div class="auth-buttons">
                 <button id="loginBtn">Войти</button>
@@ -74,7 +74,7 @@
                                 <th>Тип</th>
                                 <th>Адрес</th>
                                 <th>Статус</th>
-                                <th>Бригада</th>
+                                <th>Техслужба</th>
                                 <th>Действия</th>
                             </tr>
                         </thead>
@@ -119,25 +119,25 @@
                     </div>
                 </div>
                 
-                <!-- Модальное окно для назначения бригады -->
+                <!-- Модальное окно для назначения техслужбы -->
                 <div id="assignTeamModal" class="modal">
                     <div class="modal-content">
                         <span class="close-modal">&times;</span>
-                        <h3>Назначение бригады</h3>
+                        <h3>Назначение техслужбы</h3>
                         <div class="team-form">
                             <div class="form-group">
-                                <label for="teamSelect">Выберите бригаду:</label>
+                                <label for="teamSelect">Выберите техслужбу:</label>
                                 <select id="teamSelect" class="form-select">
-                                    <option value="">-- Выберите бригаду --</option>
-                                    <option value="team1">Бригада №1</option>
-                                    <option value="team2">Бригада №2</option>
-                                    <option value="team3">Бригада №3</option>
-                                    <option value="team4">Бригада №4</option>
+                                    <option value="">-- Выберите техслужбу --</option>
+                                    <option value="team1">Техслужба №1</option>
+                                    <option value="team2">Техслужба №2</option>
+                                    <option value="team3">Техслужба №3</option>
+                                    <option value="team4">Техслужба №4</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="teamComment">Вводные данные:</label>
-                                <textarea id="teamComment" class="form-textarea" placeholder="Введите комментарий к назначению бригады"></textarea>
+                                <textarea id="teamComment" class="form-textarea" placeholder="Введите комментарий к назначению техслужбы"></textarea>
                             </div>
                             <button id="saveTeam" class="form-button">Сохранить</button>
                         </div>

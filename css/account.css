@@ -17,7 +17,7 @@
 /* Стили для секций */
 .account-info, .service-requests {
     background: #fff;
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -29,15 +29,15 @@
 
 /* Стили для заголовков */
 h2 {
-    color: #2c3e50;
+    color: #1a1a2e;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #9b59b6;
     padding-bottom: 0.5rem;
 }
 
 h3 {
-    color: #34495e;
+    color: #2d1b4e;
     font-size: 1.4rem;
     margin: 1rem 0;
 }
@@ -46,8 +46,8 @@ h3 {
 .account-balance {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    border-radius: 8px;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    border-radius: 4px;
     color: white;
     margin-bottom: 2rem;
 }
@@ -76,7 +76,7 @@ h3 {
 }
 
 .history-filters button {
-    background: #3498db;
+    background: #9b59b6;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -86,13 +86,13 @@ h3 {
 }
 
 .history-filters button:hover {
-    background: #2980b9;
+    background: #8e44ad;
 }
 
 /* Стили для списка истории */
 .history-list {
     background: #f8f9fa;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 1rem;
     max-height: 400px;
     overflow-y: auto;
@@ -112,7 +112,7 @@ h3 {
 .request-form textarea {
     padding: 0.8rem;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
@@ -120,9 +120,9 @@ h3 {
 .request-form select:focus,
 .request-form input:focus,
 .request-form textarea:focus {
-    border-color: #3498db;
+    border-color: #9b59b6;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 0 0 2px rgba(155, 89, 182, 0.2);
 }
 
 .request-form textarea {
@@ -141,7 +141,7 @@ h3 {
     color: white;
     border: none;
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -153,9 +153,9 @@ h3 {
 
 /* Стили для секции анализа потребления */
 .consumption-analysis {
-    grid-column: 1 / -1; /* Растягивает секцию на всю ширину grid-контейнера */
+    grid-column: 1 / -1;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
